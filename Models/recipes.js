@@ -15,6 +15,13 @@ Recipe.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        isUrl: true,
+      },
+    },
     ingredients: {
       type: DataTypes.ARRAY, //needs to receive an array of strings <8000 characters in length
       allowNull: false,
