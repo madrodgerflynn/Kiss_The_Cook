@@ -30,6 +30,13 @@ Recipe.init(
       type: DataTypes.ARRAY, //needs to receive an array of strings <8000 characters in length
       allowNull: false,
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "users", //might need to be singular - double check
+        key: "id",
+      },
+    },
   },
   {
     sequelize,
