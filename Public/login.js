@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // TODO: How to make sure this is a valid user?
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/api/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
@@ -22,8 +22,10 @@ const loginFormHandler = async (event) => {
   }
 };
 
-// TODO: Write logic to switch pages at this point
-const createAccountPage = async (event) => {};
+//Sends user to the create a new account page
+const createAccountPage = async (event) => {
+  document.location.replace("/api/create-user");
+};
 // Binds an event listener to the login button on login page
 document
   .querySelector("#login-btn")
