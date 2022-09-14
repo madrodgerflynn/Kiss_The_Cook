@@ -28,3 +28,7 @@ const createAccountFormHandler = async (event) => {
     }
   }
 };
+
+document
+  .querySelector("#create-account-btn")
+  .addEventListener("submit", createAccountFormHandler);
