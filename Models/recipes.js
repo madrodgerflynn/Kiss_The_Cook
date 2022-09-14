@@ -23,11 +23,11 @@ Recipe.init(
       },
     },
     ingredients: {
-      type: DataTypes.ARRAY, //needs to receive an array of strings <8000 characters in length
+      type: DataTypes.ARRAY(DataTypes.STRING), //needs to receive an array of strings <8000 characters in length
       allowNull: false,
     },
     recipe_steps: {
-      type: DataTypes.ARRAY, //needs to receive an array of strings <8000 characters in length
+      type: DataTypes.ARRAY(DataTypes.STRING), //needs to receive an array of strings <8000 characters in length
       allowNull: false,
     },
     user_id: {
@@ -40,7 +40,7 @@ Recipe.init(
   },
   {
     sequelize,
-    modelName: recipe,
+    modelName: "recipe",
   }
 );
 
