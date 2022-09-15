@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { response } = require("express");
-const User = require("../Models/users");
+const User = require("../../Models/users");
 
 router.post("/api/create-user", async (req, res) => {
   try {
