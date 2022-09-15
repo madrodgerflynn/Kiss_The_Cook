@@ -16,4 +16,4 @@ router.post("/api/create-user", async (req, res) => {
   return newUser;
 });
 
-module.exports = router;
+initmodule.exports = router;
