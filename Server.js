@@ -4,10 +4,10 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 // creates the sessions table for us automatically
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const User = require("./Models/users");
-const Recipe = require("./Models/recipes");
+// const User = require("./Models/users");
+// const Recipe = require("./Models/recipes");
 
-// const routes = require("./Controller");
+const routes = require("./Controller");
 const sequelize = require("./Config/connection");
 
 const app = express();
@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// app.use(routes);
+app.use(routes);
 
 sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
