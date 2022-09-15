@@ -16,14 +16,17 @@ const createAccountFormHandler = async (event) => {
   }
 
   if (newUsername && newPassword && confirmPassword) {
-    const response = await fetch("/api/create-user", {
+    const response = await fetch("/api/users/create-user", {
       method: "POST",
-      body: JSON.stringify({ newUsername, newPassword }),
+      body: JSON.stringify({
+        username: newUsername,
+        password: newPassword,
+      }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace("/api/login");
+      document.location.replace("/");
     } else {
       feedback.textContent = "Failed to create new user. Please try again!";
     }
