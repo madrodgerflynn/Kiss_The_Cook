@@ -1,4 +1,5 @@
 const createAccountFormHandler = async (event) => {
+  console.log("working!");
   event.preventDefault();
 
   const newUsername = document.querySelector("#username-create").value.trim();
@@ -31,4 +32,4 @@ const createAccountFormHandler = async (event) => {
 
 document
   .querySelector("#create-account-btn")
-  .addEventListener("submit", createAccountFormHandler);
+  .addEventListener("click", createAccountFormHandler);
