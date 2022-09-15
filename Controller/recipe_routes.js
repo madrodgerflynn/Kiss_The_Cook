@@ -1,19 +1,19 @@
 // const router = require("express").Router();
-// const { recipes, users } = require("../Models");
+// const { Recipe, User } = require("../Models");
 
 // router.get("/", async (req, res) => {
 //   try {
-//     const dbRecipeData = await recipes.findAll({
+//     const dbRecipeData = await Recipe.findAll({
 //       include: [
 //         {
-//           model: Painting,
-//           attributes: ["filename", "description"],
+//           model: User,
+//           attributes: ["title", "description"],
 //         },
 //       ],
 //     });
 
-//     const allRecipes = dbGalleryData.map((gallery) =>
-//       gallery.get({ plain: true })
+//     const allRecipes = dbGalleryData.map((recipe) =>
+//       recipe.get({ plain: true })
 //     );
 //     // Send over the 'loggedIn' session variable to the 'homepage' template
 //     res.render("homepage", {
