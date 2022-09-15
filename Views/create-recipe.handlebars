@@ -1,4 +1,4 @@
-    {{!-- Header --}}
+    <!-- Header -->
     <div class="text-center">
         <h2>Add Your Recipe</h2>
     </div>
@@ -44,7 +44,6 @@
                       <button type="submit" class="btn btn-primary">Add ingredient</button>
                     </div>
                 </form>
-                {{!-- UL to target for adding what the user enters --}}
                 <ul class="list-group col-md-4">
                     <li class="list-group-item">Ingredient</li>
                 </ul>
@@ -63,11 +62,20 @@
                       <button type="submit" class="btn btn-primary">Add step</button>
                     </div>
                 </form>
-                {{!-- OL to target for adding what the user enters --}}
                 <ol class="list-group list-group-numbered col-md-4">
                     <li class="list-group-item">Step</li>
-                  </ol>
+                </ol>
             </div>
           </div>
         </div>
-      </div>
+        <!-- Final Submit button to send the recipe data to the back end -->
+        <div class="row">
+            <div class="col some-padding">
+                <div class="button-margin">
+                    <button type="button" class="btn btn-primary btn-lg">Submit Recipe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./create-recipe.js"></script>
