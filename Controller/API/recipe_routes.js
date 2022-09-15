@@ -12,12 +12,12 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    const allRecipes = dbRecipeData.map((recipe) =>
+    const allRecipes = dbGalleryData.map((recipe) =>
       recipe.get({ plain: true })
     );
     // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render("login", {
-      allRecipes,
+    res.render("homepage", {
+      galleries,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
