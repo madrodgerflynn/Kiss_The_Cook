@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Recipe, User } = require("../../Models");
+const { Recipe, User } = require("../../Models/index");
+const chalk = require("chalk");
 
 // route --> /api/recipes
 router.get("/recipes", async (req, res) => {
@@ -17,7 +18,7 @@ router.get("/recipes", async (req, res) => {
     const allRecipes = dbRecipeData.map((recipe) =>
       recipe.get({ plain: true })
     );
-    console.log(chalk.blue(allRecipes));
+    console.log(chalk.blue(allRecipes)); //or this
 
     res.render("all-recipes", { allRecipes });
   } catch (err) {
@@ -25,3 +26,5 @@ router.get("/recipes", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
