@@ -5,7 +5,7 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector("#password-login").value.trim();
   const feedback = document.querySelector("#feedback-area");
 
-  if (email && password) {
+  if (username && password) {
     // TODO: How to make sure this is a valid user?
     const response = await fetch("/api/login", {
       method: "POST",
@@ -24,14 +24,14 @@ const loginFormHandler = async (event) => {
 
 //Sends user to the create a new account page
 const createAccountPage = async (event) => {
-  document.location.replace("/api/create-user");
+  document.location.replace("/create-user");
 };
 // Binds an event listener to the login button on login page
 document
   .querySelector("#login-btn")
-  .addEventListener("submit", loginFormHandler);
+  .addEventListener("click", loginFormHandler);
 
 // Logic to go to the create an account page when user clicks "Create a new account"
 document
   .querySelector("#new-account-btn")
-  .addEventListener("submit", createAccountPage);
+  .addEventListener("click", createAccountPage);
