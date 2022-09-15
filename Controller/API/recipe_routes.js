@@ -1,25 +1,25 @@
 const router = require("express").Router();
 const { Recipe, User } = require("../../Models");
 
-router.get("/", async (req, res) => {
+// route --> /api/recipes
+router.get("/recipes", async (req, res) => {
   try {
     const dbRecipeData = await Recipe.findAll({
       include: [
         {
           model: User,
-          attributes: ["title", "description"],
+          attributes: ["username"],
         },
       ],
     });
+    console.log(chalk.red(dbRecipeData)); //we are not hitting this
 
-    const allRecipes = dbGalleryData.map((recipe) =>
+    const allRecipes = dbRecipeData.map((recipe) =>
       recipe.get({ plain: true })
     );
-    // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render("homepage", {
-      galleries,
-      loggedIn: req.session.loggedIn,
-    });
+    console.log(chalk.blue(allRecipes));
+
+    res.render("all-recipes", { allRecipes });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
