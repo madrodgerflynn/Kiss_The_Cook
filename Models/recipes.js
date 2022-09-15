@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const sequelize = require("../Config/connection");
 
 class Recipe extends Model {}
 
@@ -23,11 +23,11 @@ Recipe.init(
       },
     },
     ingredients: {
-      type: DataTypes.ARRAY(DataTypes.STRING), //needs to receive an array of strings <8000 characters in length
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     recipe_steps: {
-      type: DataTypes.ARRAY(DataTypes.STRING), //needs to receive an array of strings <8000 characters in length
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     user_id: {
