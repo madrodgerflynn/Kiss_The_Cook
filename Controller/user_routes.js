@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { response } = require("express");
 const User = require("../../models/User");
 
-router.post("/", async (req, res) => {
+router.post("/api/create-user", async (req, res) => {
   try {
     const newUser = req.body;
     const userData = await User.create(newUser);
@@ -16,4 +16,4 @@ router.post("/", async (req, res) => {
   return newUser;
 });
 
-module.exports = router;
+initmodule.exports = router;
