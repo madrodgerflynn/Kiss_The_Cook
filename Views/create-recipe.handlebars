@@ -1,0 +1,73 @@
+    {{!-- Header --}}
+    <div class="text-center">
+        <h2>Add Your Recipe</h2>
+    </div>
+    <!-- Field for entering the recipe name.  Name will dynamically appear next to form in the row -->
+    <div class="container test-border">
+        <div class="row">
+            <div class="col">
+                <div class="some-padding">
+                    <form class="row gy-2 gx-3 align-items-center">
+                        <div class="row">
+                            <div class="col-md-4 test-margin">
+                              <input type="text" class="form-control test-margin" placeholder="Enter recipe name" aria-label="recipe name">
+                            </div>
+                        </div>
+                        <div class="col-auto custom-margin">
+                          <button type="submit" class="btn btn-primary">Enter name</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+            <!-- div to contain the recipe name -->
+            <div class="col">
+                <div class="some-padding">
+                    <!-- Element to contain recipe name -->
+                    <h3 class="custom-text"> placeholder text </h3>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Row containing Steps Form and Ingredients Form.  UL and OL will be targeted to render 'strings' as they are entered into an array -->
+        <div class="row">
+          <div class="col">
+            <div class="some-padding">
+                <!-- Add ingredient form and UL -->
+                <form class="row gy-2 gx-3 align-items-center">
+                    <div class="row">
+                        <div class="col-md-4 test-margin">
+                          <input type="text" class="form-control test-margin" placeholder="Enter ingredient" aria-label="ingredient">
+                        </div>
+                    </div>
+                    <div class="col-auto custom-margin">
+                      <button type="submit" class="btn btn-primary">Add ingredient</button>
+                    </div>
+                </form>
+                {{!-- UL to target for adding what the user enters --}}
+                <ul class="list-group col-md-4">
+                    <li class="list-group-item">Ingredient</li>
+                </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="some-padding container-md">
+                <!-- Add Steps form and OL -->
+                <form class="row gy-2 gx-3 align-items-center">
+                    <div class="row">
+                        <div class="col-md-4 test-margin">
+                          <input type="text" class="form-control test-margin" placeholder="Enter steps" aria-label="instructions">
+                        </div>
+                    </div>
+                    <div class="col-auto custom-margin">
+                      <button type="submit" class="btn btn-primary">Add step</button>
+                    </div>
+                </form>
+                {{!-- OL to target for adding what the user enters --}}
+                <ol class="list-group list-group-numbered col-md-4">
+                    <li class="list-group-item">Step</li>
+                  </ol>
+            </div>
+          </div>
+        </div>
+      </div>
