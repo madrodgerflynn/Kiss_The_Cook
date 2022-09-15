@@ -5,8 +5,8 @@ const { User } = require("../Models");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
-  // await seedUsers();
-  await User.bulkCreate(seedUsers);
+  await seedUsers();
+  // await User.bulkCreate(seedUsers);
   await seedRecipes();
   process.exit(0);
 };

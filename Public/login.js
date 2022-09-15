@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
 
   if (username && password) {
     // TODO: How to make sure this is a valid user?
-    const response = await fetch("/api/login", {
+    const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
