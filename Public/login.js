@@ -1,6 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-
+  console.log("login.js is loaded");
   const username = document.querySelector("#username-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
   const feedback = document.querySelector("#feedback-area");
@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/all-recipes");
+      document.location.replace("/");
     } else {
       feedback.textContent = "Failed to login. Please try again!";
       //   then refresh page?
