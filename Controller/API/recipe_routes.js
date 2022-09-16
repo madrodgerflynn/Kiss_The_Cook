@@ -27,27 +27,20 @@ router.get("/", async (req, res) => {
   }
 });
 //finding one recipe
-router.get("/recipes/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const dbRecipeData = await Recipe.findByPk(req.params.id, {
       include: [
         {
-          model: Recipe,
-          attributes: [
-            "id",
-            "title",
-            "image",
-            "ingredients",
-            "recipe_steps",
-            "user_id",
-          ],
+          model: User,
+          attributes: ["username"],
         },
       ],
     });
 
     const recipe = dbRecipeData.get({ plain: true });
     console.log(chalk.yellowBright(recipe));
-    res.render("recipes", { recipe, loggedIn: req.session.loggedIn });
+    res.render("one-recipe", { recipe, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
