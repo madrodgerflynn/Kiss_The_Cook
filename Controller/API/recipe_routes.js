@@ -62,14 +62,30 @@ router.get("/my/:user_id", async (req, res) => {
       },
     });
 
-    let recipes = [];
+    let allRecipes = [];
     for (const recipe of userRecipeData) {
-      recipes.push(recipe.get({ plain: true }));
+      allRecipes.push(recipe.get({ plain: true }));
     }
 
-    res.status(200).json(recipes);
+    res.render("all-recipes", { allRecipes });
   } catch (err) {
     console.log(chalk.green("Oops. Failed to get recipes."));
+    res.status(500).json(err);
+  }
+});
+
+// post a new recipe to the database
+router.post("/add-recipe", async (req, res) => {
+  try {
+    const dbRecipeData = await Recipe.create({
+      title: req.body.title,
+      image: req.body.image,
+      ingredients: req.body.ingredients,
+      recipe_steps: req.body.recipe_steps,
+      user_id: req.body.user_id,
+    });
+    res.status(200).json(dbRecipeData);
+  } catch (err) {
     res.status(500).json(err);
   }
 });
