@@ -8,6 +8,7 @@ h1,
 li,
 ul,
 ol,
-button {
+button,
+.btn {
   font-family: "Jost", sans-serif;
 }
