@@ -1,0 +1,20 @@
+ <div class="card text-center d-flex justify-content-center m-5">
+            <h2 class="card-header">
+              {{recipe.title}}
+            </h2>
+            <div class="card-body">
+                <img src="{{recipe.url}}" alt="Picture of food">
+              <h5 class="card-title">From: {{recipe.username}}</h5>
+              <ul class="card-text">Ingredients:
+                {{#each recipe.ingredients as |ingredient|}}
+                <li>{{ingredient}}</li>
+                {{/each}}<!-- dynamically create list items here from array -->
+              </ul>
+              <ol class = "card-text">Steps:
+                {{#each recipe.step as |step|}}
+                <li>{{step}}</li>
+                {{/each}}<!-- dynamically create list items here from other array -->
+              </ol>
+              <a href="#" class="btn btn-primary" id = "like-button">Like</a>
+            </div>
+            <div class="card-footer text-muted">
