@@ -43,7 +43,63 @@
       </form> -->
     </nav>
     <main>
-      {{{body}}}
+      <div class="container-expand w-100">
+
+        <div class="row w-100 h-100 d-flex justify-content-center">
+          {{#if loggedIn}}
+            <aside
+              class="col-xl-2 col-lg-3 col-md-4 col-5 bg-dark h-100 text-white"
+            >
+              <ul class="nav flex-column">
+                <li class="nav-item mx-auto m-3">
+                  <button
+                    type="button"
+                    class="btn btn-light btn-lg"
+                    id="allBtn"
+                  >
+                    All Recipes
+                  </button>
+                </li>
+                <li class="nav-item mx-auto m-3">
+                  <button type="button" class="btn btn-light btn-lg" id="myBtn">
+                    My Recipes
+                  </button>
+                </li>
+                <li class="nav-item mx-auto m-3">
+                  <button
+                    type="button"
+                    class="btn btn-light btn-lg"
+                    id="surpriseBtn"
+                  >
+                    Surprise Me!
+                  </button>
+                </li>
+                <li class="nav-item mx-auto m-3">
+                  <button
+                    type="button"
+                    class="btn btn-light btn-lg"
+                    id="addBtn"
+                  >
+                    Add a Recipe
+                  </button>
+                </li>
+                <li class="nav-item mx-auto m-3">
+                  <button
+                    type="button"
+                    id="logout"
+                    class="btn btn-light btn-lg"
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </ul>
+            </aside>
+            {{{body}}}
+          {{else}}
+            {{{body}}}
+          {{/if}}
+        </div>
+      </div>
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

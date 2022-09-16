@@ -1,6 +1,15 @@
-<div class="card m-4" style="width: 18rem">
-  <img class="card-img-top" src="{{image}}" alt="Image of food" />
+<div class="card m-4 d-inline-flex" style="width: 18rem">
+  {{#if image}}
+    <img class="card-img-top" src="{{image}}" alt="Image of food" />
+
+  {{else}}
+    <img
+      src="https://cdn.pixabay.com/photo/2017/06/06/22/37/italian-cuisine-2378729_1280.jpg"
+      alt="No image available"
+    />
+  {{/if}}
   <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
+    <h5 class="card-title text-center">{{title}}</h5>
+    <h6 class="card-text text-center">From the kitchen of: @{{user.username}}</h6>
   </div>
 </div>
