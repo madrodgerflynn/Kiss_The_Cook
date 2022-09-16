@@ -4,7 +4,7 @@ const router = require("express").Router();
 // Route to pull up homepage
 router.get("/", (req, res) => {
   try {
-    res.render("login");
+    res.render("login", { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(400).json(err);

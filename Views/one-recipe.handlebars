@@ -1,20 +1,23 @@
- <div class="card text-center d-flex justify-content-center m-5">
-            <h2 class="card-header">
-              {{recipe.title}}
-            </h2>
-            <div class="card-body">
-                <img src="{{recipe.url}}" alt="Picture of food">
-              <h5 class="card-title">From: {{recipe.username}}</h5>
-              <ul class="card-text">Ingredients:
-                {{#each recipe.ingredients as |ingredient|}}
-                <li>{{ingredient}}</li>
-                {{/each}}<!-- dynamically create list items here from array -->
-              </ul>
-              <ol class = "card-text">Steps:
-                {{#each recipe.recipe_steps as |step|}}
-                <li>{{step}}</li>
-                {{/each}}<!-- dynamically create list items here from other array -->
-              </ol>
-              <a href="#" class="btn btn-primary" id = "like-button">Like</a>
-            </div>
-            <div class="card-footer text-muted">
+<div class="card text-center d-flex justify-content-center m-5 w-50">
+  <h2 class="card-header">
+    {{recipe.title}}
+  </h2>
+  <h5 class="card-title">By: @{{recipe.user.username}}</h5>
+  <div class="card-body d-flex flex-column align-items-start">
+    <img src="{{recipe.image}}" alt="Picture of food" class="card-img-top" />
+
+    <ul class="card-text">Ingredients:
+      {{#each recipe.ingredients as |ingredient|}}
+        <li>{{ingredient}}</li>
+      {{/each}}<!-- dynamically create list items here from array -->
+    </ul>
+    <ol class="card-text">Steps:
+      {{#each recipe.recipe_steps as |step|}}
+        <li>{{step}}</li>
+      {{/each}}<!-- dynamically create list items here from other array -->
+    </ol>
+    <a href="#" class="btn btn-dark mt-auto ml-auto" id="like-button">Like</a>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>
