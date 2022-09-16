@@ -62,12 +62,12 @@ router.get("/my/:user_id", async (req, res) => {
       },
     });
 
-    let recipes = [];
+    let allRecipes = [];
     for (const recipe of userRecipeData) {
-      recipes.push(recipe.get({ plain: true }));
+      allRecipes.push(recipe.get({ plain: true }));
     }
 
-    res.status(200).json(recipes);
+    res.render("all-recipes", { allRecipes });
   } catch (err) {
     console.log(chalk.green("Oops. Failed to get recipes."));
     res.status(500).json(err);
