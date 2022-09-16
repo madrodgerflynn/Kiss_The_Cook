@@ -14,13 +14,13 @@ router.get("/", async (req, res) => {
       ],
     });
     console.log(chalk.red(dbRecipeData)); //we are not hitting this
-
+    console.log(dbRecipeData[0]);
     const allRecipes = dbRecipeData.map((recipe) =>
       recipe.get({ plain: true })
     );
-    console.log(chalk.blue(allRecipes)); //or this
-    res.status(200).json(allRecipes);
-    // res.render("all-recipes", { allRecipes });
+    console.log(chalk.blue({ allRecipes })); //or this
+    // res.status(200).json(allRecipes);
+    res.render("all-recipes", { allRecipes });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
