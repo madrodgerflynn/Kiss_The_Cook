@@ -46,7 +46,7 @@ router.get("/recipes/:id", async (req, res) => {
     });
 
     const recipe = dbRecipeData.get({ plain: true });
-    // Send over the 'loggedIn' session variable to the 'gallery' template
+    console.log(chalk.yellowBright(recipe));
     res.render("recipes", { recipe, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
