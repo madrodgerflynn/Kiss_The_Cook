@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/recipes");
+      document.location.replace("/api/recipes");
     } else {
       feedback.textContent = "Failed to login. Please try again!";
       //   then refresh page?
