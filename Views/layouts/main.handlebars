@@ -18,8 +18,14 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;500&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
     {{! link stylesheet here }}
-    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Kiss the Chef</title>
 
   </head>
@@ -45,8 +51,8 @@
     <main>
       <div class="container-expand w-100">
 
-        <div class="row w-100 h-100 d-flex justify-content-center">
-          {{#if loggedIn}}
+        <div class="row w-100 h-100">
+          {{!-- {{#if loggedIn}}
             <aside
               class="col-xl-2 col-lg-3 col-md-4 col-5 bg-dark h-100 text-white"
             >
@@ -95,9 +101,9 @@
               </ul>
             </aside>
             {{{body}}}
-          {{else}}
-            {{{body}}}
-          {{/if}}
+          {{else}} --}}
+          {{{body}}}
+          {{!-- {{/if}} --}}
         </div>
       </div>
     </main>
