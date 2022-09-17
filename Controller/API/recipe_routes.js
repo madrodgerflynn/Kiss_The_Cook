@@ -4,11 +4,10 @@ const chalk = require("chalk");
 
 // route --> /api/recipes
 router.get("/", async (req, res) => {
-  // if there is no loggedIn key on the session object or it has a value of false, redirect to the home page (login)
-  if (!req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
+  // --> for some reason this is redirecting to the home page even when req.session.loggedIn=true
+  // if (!req.session.loggedIn) {
+  //   res.redirect("/");
+  // } else {
   try {
     const dbRecipeData = await Recipe.findAll({
       include: [
@@ -19,7 +18,6 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    console.log(dbRecipeData[0]);
     const allRecipes = dbRecipeData.map((recipe) =>
       recipe.get({ plain: true })
     );
@@ -29,16 +27,12 @@ router.get("/", async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
+  // }
 });
 
 //finding one recipe by recipe id
 // route --> /api/recipes/:id
 router.get("/:id", async (req, res) => {
-  // if there is no loggedIn key on the session object or it has a value of false, redirect to the home page (login)
-  if (!req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
   try {
     const dbRecipeData = await Recipe.findByPk(req.params.id, {
       include: [
@@ -60,11 +54,6 @@ router.get("/:id", async (req, res) => {
 // finding all recipes by matching user_id
 // route --> /api/recipes/my/:user_id
 router.get("/my/:user_id", async (req, res) => {
-  // if there is no loggedIn key on the session object or it has a value of false, redirect to the home page (login)
-  if (!req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
   try {
     const userRecipeData = await Recipe.findAll({
       where: {

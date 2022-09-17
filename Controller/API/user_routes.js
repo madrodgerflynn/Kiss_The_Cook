@@ -3,7 +3,8 @@ const { response } = require("express");
 const User = require("../../Models/users");
 const chalk = require("chalk");
 
-//create a new user -> /api/users/create-user
+// create a new user
+// route --> POST --> /api/users/create-user
 router.post("/create-user", async (req, res) => {
   try {
     const newUser = req.body;
@@ -18,7 +19,7 @@ router.post("/create-user", async (req, res) => {
   // return newUser;
 });
 
-// Post route to validate login info
+// Login
 // route --> POST --> /api/users/login
 router.post("/login", async (req, res) => {
   try {
@@ -35,7 +36,6 @@ router.post("/login", async (req, res) => {
     }
 
     const validPassword = await dbUserData.checkPassword(req.body.password);
-    console.log(validPassword);
     if (!validPassword) {
       res
         .status(400)
@@ -47,24 +47,20 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       // create a key loggedIn on the session object & set its value = true
       req.session.loggedIn = true;
-      console.log(req.session);
     });
-    // document.location.replace("/api/recipes");
+
     res.redirect("/api/recipes");
-    // res
-    //   .status(200)
-    //   .json({ user: dbUserData, message: "You are now logged in!" });
   } catch {
     console.log("darn!");
   }
 });
 
-// LOGOUT route
+// LOGOUT
+// route --> POST --> /api/users/logout
 router.post("/logout", (req, res) => {
-  console.log(req.session.loggedIn);
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.redirect("/");
     });
   } else {
     res.status(404).end();
