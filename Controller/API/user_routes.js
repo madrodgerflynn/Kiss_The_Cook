@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { response } = require("express");
 const User = require("../../Models/users");
+const chalk = require("chalk");
 
 //create a new user -> /api/users/create-user
 router.post("/create-user", async (req, res) => {
@@ -18,7 +19,8 @@ router.post("/create-user", async (req, res) => {
 });
 
 // Post route to validate login info
-router.post("/", async (req, res) => {
+// route --> POST --> /api/users/login
+router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -33,29 +35,32 @@ router.post("/", async (req, res) => {
     }
 
     const validPassword = await dbUserData.checkPassword(req.body.password);
-
+    console.log(validPassword);
     if (!validPassword) {
       res
         .status(400)
         .json({ message: "Incorrect username or password. Please try again." });
+      return;
     }
 
+    // .save() is used to save key:value pairs on the session object
     req.session.save(() => {
+      // create a key loggedIn on the session object & set its value = true
       req.session.loggedIn = true;
-      console.log("Logged in");
+      console.log(req.session);
     });
-
-    res
-      .status(200)
-      .json({ user: dbUserData, message: "You are now logged in!" });
-    document.location.replace("/api/recipes");
-  } catch (err) {
-    res.status(500).json(err);
+    // document.location.replace("/api/recipes");
+    res.redirect("/api/recipes");
+    // res
+    //   .status(200)
+    //   .json({ user: dbUserData, message: "You are now logged in!" });
+  } catch {
+    console.log("darn!");
   }
 });
 
 // LOGOUT route
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   console.log(req.session.loggedIn);
   if (req.session.loggedIn) {
     req.session.destroy(() => {
@@ -65,7 +70,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
-
 
 module.exports = router;
