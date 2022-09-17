@@ -4,11 +4,8 @@ const loginFormHandler = async (event) => {
   const username = document.querySelector("#username-login").value.trim();
   const password = document.querySelector("#password-login").value;
   const feedback = document.querySelector("#feedback-area");
-  console.log(username);
-  console.log(password);
 
   if (username && password) {
-    // TODO: How to make sure this is a valid user?
     const response = await fetch("/api/users/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
@@ -16,6 +13,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log("yay");
       window.location.replace("/api/recipes");
     } else {
       feedback.textContent = "Failed to login. Please try again!";
