@@ -35,6 +35,30 @@ router.get("/", async (req, res) => {
   // }
 });
 
+// route --> /api/recipes/all
+router.get("/all", async (req, res) => {
+  try {
+    const dbRecipeData = await Recipe.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
+
+    const allRecipes = dbRecipeData.map((recipe) =>
+      recipe.get({ plain: true })
+    );
+    console.log(allRecipes);
+
+    res.status(200).json(allRecipes);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 //finding one recipe by recipe id
 // route --> /api/recipes/:id
 router.get("/:id", async (req, res) => {
