@@ -1,105 +1,149 @@
-    {{#if loggedIn}}
-    <!-- Field for entering the recipe name.  Name will dynamically appear next to form in the row -->
-    <div class="container test-border">
-        <!-- Header -->
+{{#if loggedIn}}
+  <!-- Field for entering the recipe name.  Name will dynamically appear next to form in the row -->
+  <div class="test-border">
+    <!-- Header -->
     <div class="text-center">
-        <h2>Add Your Recipe</h2>
+      <h2>Add Your Recipe</h2>
     </div>
     <div class="row align-items-center">
-        <div class="col">
-            <div class="some-padding">
-                <form class="row gy-2 gx-3 align-items-center">
-                    <div class="row">
-                        <h5>1. Enter your recipe name</h5>
-                        <div class="col-md-4 test-margin">
-                          <input type="text" id="name-input" class="form-control test-margin" placeholder="Enter recipe name" aria-label="recipe name">
-                        </div>
-                    </div>
-                    <div class="col-auto custom-margin">
-                      <button type="submit" id="add-name-button" class="btn btn-primary">Enter name</button>
-                    </div>
-                </form>
+      <div class="col">
+        <div class="some-padding">
+          <form class="row gy-2 gx-3 align-items-center">
+            <div class="row">
+              <h5>1. Enter your recipe name</h5>
+              <div class="col-md-4 test-margin">
+                <input
+                  type="text"
+                  id="name-input"
+                  class="form-control test-margin"
+                  placeholder="Enter recipe name"
+                  aria-label="recipe name"
+                />
+              </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="some-padding">
-                <h3 id="name-text" class="custom-text">  </h3>
+            <div class="col-auto custom-margin">
+              <button
+                type="submit"
+                id="add-name-button"
+                class="btn btn-primary"
+              >Enter name</button>
             </div>
+          </form>
         </div>
+      </div>
+      <div class="col">
+        <div class="some-padding">
+          <h3 id="name-text" class="custom-text"> </h3>
+        </div>
+      </div>
     </div>
-        <div class="row">
-            <div class="col">
-                <div class="some-padding">
-                    <form class="row gy-2 gx-3 align-items-center">
-                        <div class="row">
-                            <h5>2. Enter your recipe image-optional</h5>
-                            <div class="col-md-4 test-margin">
-                              <input type="text" id="image-input" class="form-control test-margin" placeholder="Enter image url" aria-label="recipe name">
-                            </div>
-                        </div>
-                        <div class="col-auto custom-margin">
-                          <button type="submit" id="add-image-button" class="btn btn-primary">Enter image</button>
-                        </div>
-                    </form>
-                </div>
+    <div class="row">
+      <div class="col">
+        <div class="some-padding">
+          <form class="row gy-2 gx-3 align-items-center">
+            <div class="row">
+              <h5>2. Enter your recipe image-optional</h5>
+              <div class="col-md-4 test-margin">
+                <input
+                  type="text"
+                  id="image-input"
+                  class="form-control test-margin"
+                  placeholder="Enter image url"
+                  aria-label="recipe name"
+                />
+              </div>
             </div>
+            <div class="col-auto custom-margin">
+              <button
+                type="submit"
+                id="add-image-button"
+                class="btn btn-primary"
+              >Enter image</button>
+            </div>
+          </form>
         </div>
-        <!-- Row containing Steps Form and Ingredients Form.  UL and OL will be targeted to render 'strings' as they are entered into an array -->
-        <div class="row">
-          <div class="col">
-            <div class="some-padding">
-                <!-- Add ingredient form and UL -->
-                <form class="row gy-2 gx-3 align-items-center">
-                    <div class="row">
-                        <h5>3. Enter your recipe ingredients</h5>
-                        <div class="col-md-4 test-margin">
-                          <input type="text" id="ingredient-input" class="form-control test-margin" placeholder="Enter ingredient" aria-label="ingredient">
-                        </div>
-                    </div>
-                    <div class="col-auto custom-margin">
-                      <button type="submit" id="add-ingredient-button" class="btn btn-primary">Add ingredient</button>
-                    </div>
-                </form>
-                <ul id="ingredient-list" class="list-group col-md-4">
-                    
-                </ul>
-            </div>
-          </div>
-          <div class="col">
-            <div class="some-padding container-md">
-                <!-- Add Steps form and OL -->
-                <form class="row gy-2 gx-3 align-items-center">
-                    <div class="row">
-                        <h5>4. Enter your recipe steps</h5>
-                        <div class="col-md-4 test-margin">
-                          <input type="text" id="step-input"class="form-control test-margin" placeholder="Enter steps" aria-label="instructions">
-                        </div>
-                    </div>
-                    <div class="col-auto custom-margin">
-                      <button type="submit" id="add-step-button" class="btn btn-primary">Add step</button>
-                    </div>
-                </form>
-                <ol id="step-list" class="list-group list-group-numbered col-md-4">
-                    
-                </ol>
-            </div>
-          </div>
-        </div>
-        <!-- Final Submit button to send the recipe data to the back end -->
-        <div class="row">
-            <div class="col some-padding">
-                <h5>5. Submit your recipe!</h5>
-                <div class="button-margin">
-                    <button type="button" id="submit-button" class="btn btn-primary btn-lg">Submit Recipe</button>
-                </div>
-                <div id="feedback">
-                    
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <!-- Row containing Steps Form and Ingredients Form.  UL and OL will be targeted to render 'strings' as they are entered into an array -->
+    <div class="row">
+      <div class="col">
+        <div class="some-padding">
+          <!-- Add ingredient form and UL -->
+          <form class="row gy-2 gx-3 align-items-center">
+            <div class="row">
+              <h5>3. Enter your recipe ingredients</h5>
+              <div class="col-md-4 test-margin">
+                <input
+                  type="text"
+                  id="ingredient-input"
+                  class="form-control test-margin"
+                  placeholder="Enter ingredient"
+                  aria-label="ingredient"
+                />
+              </div>
+            </div>
+            <div class="col-auto custom-margin">
+              <button
+                type="submit"
+                id="add-ingredient-button"
+                class="btn btn-primary"
+              >Add ingredient</button>
+            </div>
+          </form>
+          <ul id="ingredient-list" class="list-group col-md-4">
 
-  <script src="./js/create-recipe.js"></script>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="some-padding container-md">
+          <!-- Add Steps form and OL -->
+          <form class="row gy-2 gx-3 align-items-center">
+            <div class="row">
+              <h5>4. Enter your recipe steps</h5>
+              <div class="col-md-4 test-margin">
+                <input
+                  type="text"
+                  id="step-input"
+                  class="form-control test-margin"
+                  placeholder="Enter steps"
+                  aria-label="instructions"
+                />
+              </div>
+            </div>
+            <div class="col-auto custom-margin">
+              <button
+                type="submit"
+                id="add-step-button"
+                class="btn btn-primary"
+              >Add step</button>
+            </div>
+          </form>
+          <ol id="step-list" class="list-group list-group-numbered col-md-4">
+
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- Final Submit button to send the recipe data to the back end -->
+    <div class="row">
+      <div class="col some-padding">
+        <h5>5. Submit your recipe!</h5>
+        <div class="button-margin">
+          <button
+            type="button"
+            id="submit-button"
+            class="btn btn-primary btn-lg"
+          >Submit Recipe</button>
+        </div>
+        <div id="feedback">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/create-recipe.js"></script>
 {{else}}
   <a href="/">You must login first to view this page.</a>
 {{/if}}

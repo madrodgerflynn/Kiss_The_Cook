@@ -12,8 +12,8 @@ const myRecipesBtn = (event) => {
   document.location.replace(`/api/recipes/my/${thisUser}`);
 };
 
-const addRecipeBtn = async () => {
-  //include route to form for adding a recipe
+const addRecipeBtn = () => {
+  document.location.replace("/api/add-recipe");
 };
 
 const logOutBtn = async () => {
