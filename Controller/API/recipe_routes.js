@@ -23,7 +23,11 @@ router.get("/", async (req, res) => {
       recipe.get({ plain: true })
     );
     console.log(req.session);
-    res.render("all-recipes", { allRecipes, loggedIn: req.session.loggedIn });
+    res.render("all-recipes", {
+      allRecipes,
+      loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -74,7 +78,11 @@ router.get("/my/:user_id", async (req, res) => {
       allRecipes.push(recipe.get({ plain: true }));
     }
 
-    res.render("all-recipes", { allRecipes, loggedIn: req.session.loggedIn });
+    res.render("all-recipes", {
+      allRecipes,
+      loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id,
+    });
   } catch (err) {
     console.log(chalk.green("Oops. Failed to get recipes."));
     res.status(500).json(err);
