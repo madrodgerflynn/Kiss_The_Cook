@@ -1,0 +1,19 @@
+h2,
+h5,
+h6 {
+  font-family: "Shadows Into Light", cursive;
+}
+
+h1,
+li,
+ul,
+ol,
+button,
+.btn {
+  font-family: "Jost", sans-serif;
+}
+
+.img-responsive {
+  max-width: 10%;
+  max-height: 10%;
+}
