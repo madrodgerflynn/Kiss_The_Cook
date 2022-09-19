@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/madrodgerflynn/Kiss_The_Chef#readme",
   "dependencies": {
+    "animejs": "^3.2.1",
     "bcrypt": "^5.0.1",
     "chalk": "^4.1.2",
     "connect-session-sequelize": "^7.1.5",
