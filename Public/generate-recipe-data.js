@@ -1,19 +1,34 @@
 const addNameButton = document.querySelector('#add-name-button');
 const addIngredientButton = document.querySelector('#add-ingredient-button');
 const addStepButton = document.querySelector('#add-step-button');
+const nameInput = document.querySelector('#name-input');
+const ingredientInput = document.querySelector('#ingredient-input');
+const stepInput = document.querySelector('#step-input');
 
-function appendName (params) {
+function saveName () {
+    const savedName = { name: nameInput.value };
+    console.log(savedName);
+    localStorage.setItem("savedName", JSON.stringify(savedName));
+}
+
+function displayName () {}
+
+function saveIngredient (input) {
     
 }
 
-function appendIngredient (params) {
+function displayIngredient () {
+
+}
+
+function saveStep (input) {
     
 }
 
-function appendStep (params) {
-    
+function displayStep () {
+
 }
 
-addNameButton.addEventListener("click", )
+addNameButton.addEventListener("click", saveName)
 addIngredientButton.addEventListener("click", )
 addStepButton.addEventListener("click", )
