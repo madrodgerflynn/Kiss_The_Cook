@@ -89,6 +89,8 @@ router.get("/my/:user_id", async (req, res) => {
   }
 });
 
+// api/recipes/add-recipe
+//move this one too
 // post a new recipe to the database
 router.post("/add-recipe", async (req, res) => {
   try {
