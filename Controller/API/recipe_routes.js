@@ -74,7 +74,7 @@ router.get("/my/:user_id", async (req, res) => {
       allRecipes.push(recipe.get({ plain: true }));
     }
 
-    res.render("all-recipes", { allRecipes });
+    res.render("all-recipes", { allRecipes, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(chalk.green("Oops. Failed to get recipes."));
     res.status(500).json(err);

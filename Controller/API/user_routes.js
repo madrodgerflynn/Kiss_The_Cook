@@ -68,9 +68,17 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//Return the current user's id
+router.get("/id", async (req, res) => {
+  const userId = req.session.user_id;
+  res.json(userId);
+});
+
 // LOGOUT
 // route --> POST --> /api/users/logout
 router.post("/logout", (req, res) => {
+  console.log(req.session);
+  console.log("Hello");
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.redirect("/");
