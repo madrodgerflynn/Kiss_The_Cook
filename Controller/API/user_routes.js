@@ -71,7 +71,8 @@ router.post("/login", async (req, res) => {
 //Return the current user's id
 router.get("/id", async (req, res) => {
   const userId = req.session.user_id;
-  res.json(userId);
+  console.log(userId);
+  res.status(200).json(userId);
 });
 
 // LOGOUT

@@ -1,23 +1,15 @@
-// const { User } = require("../Models");
-
-// const { response } = require("express");
-
 const allRecipesBtn = async () => {
   console.log("button working");
   document.location.replace("/api/recipes");
 };
 
-const myRecipesBtn = async () => {
+const myRecipesBtn = (event) => {
   // how to pull current user's id?
-  const thisUser = await fetch(`/api/users/id`);
+  console.log(event.target);
+  const thisUser = event.target.getAttribute("data-type");
   console.log(thisUser);
 
   document.location.replace(`/api/recipes/my/${thisUser}`);
-  if (response.ok) {
-    console.log("Pulling up your recipes");
-  } else {
-    console.log("Not working");
-  }
 };
 
 const addRecipeBtn = async () => {
