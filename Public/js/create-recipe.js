@@ -22,6 +22,7 @@ let stepArray = []
 
 
 const createRecipeFormHandler = async (event) => {
+    event.preventDefault();
     if (recipeName && ingredientLi && stepLi ) {
         const response = await fetch("/api/recipes/add-recipe", {
             method: "POST",
@@ -34,8 +35,8 @@ const createRecipeFormHandler = async (event) => {
             headers: { "Content-Type": "application/json" },
         });
         if (response.ok) {
-            document.location.replace(" ")
-        }
+            document.location.replace("/");
+        } else {alert("Failed to submit recipe");}
     }
 
     
