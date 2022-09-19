@@ -12,7 +12,16 @@ router.post("/create-user", async (req, res) => {
     if (!userData) {
       response.status(500).json({ message: "Failed to create User!" });
     }
-    res.status(200).json(userData);
+
+    req.session.save(() => {
+      // create a key, loggedIn, on the session object & set its value = true
+      req.session.loggedIn = true;
+      req.session.user_id = userData.id;
+      console.log(req.session); // loggedIn key = true
+      // res.status(200).json({ user: dbUserData });
+      res.redirect("/api/recipes");
+    });
+    // res.status(200).json(userData);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -48,12 +57,14 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       // create a key, loggedIn, on the session object & set its value = true
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.id;
       console.log(req.session); // loggedIn key = true
+      // res.status(200).json({ user: dbUserData });
+      res.redirect("/api/recipes");
     });
-
-    res.redirect("/api/recipes");
-  } catch {
-    console.log("darn!");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 

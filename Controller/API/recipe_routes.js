@@ -22,8 +22,8 @@ router.get("/", async (req, res) => {
     const allRecipes = dbRecipeData.map((recipe) =>
       recipe.get({ plain: true })
     );
-
-    res.render("all-recipes", { allRecipes });
+    console.log(req.session);
+    res.render("all-recipes", { allRecipes, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -45,6 +45,9 @@ router.get("/:id", async (req, res) => {
     });
 
     const recipe = dbRecipeData.get({ plain: true });
+    console.log("========");
+    console.log(req.session);
+    console.log("========");
     res.render("one-recipe", { recipe, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);

@@ -5,6 +5,7 @@ const logout = async () => {
   });
 
   if (response.ok) {
+    console.log("logging out");
     window.location.replace("/");
   } else {
     console.log(`logout.js line 10 catch`);
