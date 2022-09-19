@@ -1,33 +1,6 @@
-<aside class="col-xl-2 col-lg-3 col-md-4 col-5 bg-dark h-100 text-white">
-  <ul class="nav flex-column">
-    <li class="nav-item mx-auto m-3">
-      <button type="button" class="btn btn-light btn-lg" id="allBtn">
-        All Recipes
-      </button>
-    </li>
-    <li class="nav-item mx-auto m-3">
-      <button type="button" class="btn btn-light btn-lg" id="myBtn">
-        My Recipes
-      </button>
-    </li>
-    <li class="nav-item mx-auto m-3">
-      <button type="button" class="btn btn-light btn-lg" id="surpriseBtn">
-        Surprise Me!
-      </button>
-    </li>
-    <li class="nav-item mx-auto m-3">
-      <button type="button" class="btn btn-light btn-lg" id="addBtn">
-        Add a Recipe
-      </button>
-    </li>
-    <li class="nav-item mx-auto m-3">
-      <button type="button" id="logout" class="btn btn-light btn-lg">
-        Log Out
-      </button>
-    </li>
-  </ul>
-</aside>
 
+
+{{#if loggedIn}}
 <div class="card text-center d-flex justify-content-center mx-auto m-5 w-50">
   <h2 class="card-header">
     {{recipe.title}}
@@ -46,10 +19,15 @@
         <li>{{step}}</li>
       {{/each}}<!-- dynamically create list items here from other array -->
     </ol>
-    <a href="#" class="btn btn-dark mt-auto ml-auto" id="like-button">Like</a>
+    <img
+      src="https://cdn.pixabay.com/photo/2017/11/07/20/16/kiss-2928081_960_720.png" class = "btn img-responsive mt-auto ml-auto"
+    ></img>
   </div>
   <div class="card-footer text-muted">
   </div>
 </div>
 
 <script src="/menu-buttons.js"></script>
+{{else}}
+<a href="/">You must login first to view this page.</a>
+{{/if}}

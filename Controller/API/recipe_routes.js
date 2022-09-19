@@ -4,6 +4,11 @@ const chalk = require("chalk");
 
 // route --> /api/recipes
 router.get("/", async (req, res) => {
+  // --> for some reason this is redirecting to the home page even when req.session.loggedIn=true
+  // if (!req.session.loggedIn) {
+  //   res.redirect("/");
+  // }
+  //  else {
   try {
     const dbRecipeData = await Recipe.findAll({
       include: [
@@ -13,18 +18,17 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-    console.log(chalk.red(dbRecipeData)); //we are not hitting this
-    console.log(dbRecipeData[0]);
+
     const allRecipes = dbRecipeData.map((recipe) =>
       recipe.get({ plain: true })
     );
-    console.log(chalk.blue({ allRecipes })); //or this
-    // res.status(200).json(allRecipes);
+
     res.render("all-recipes", { allRecipes });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
+  // }
 });
 
 //finding one recipe by recipe id

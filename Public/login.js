@@ -1,20 +1,20 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
-  console.log("login.js is loaded");
+  // console.log("login.js is loaded");
   const username = document.querySelector("#username-login").value.trim();
-  const password = document.querySelector("#password-login").value.trim();
+  const password = document.querySelector("#password-login").value;
   const feedback = document.querySelector("#feedback-area");
 
   if (username && password) {
-    // TODO: How to make sure this is a valid user?
-    const response = await fetch("/api/users", {
+    const response = await fetch("/api/users/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace("/api/recipes");
+      console.log("yay");
+      window.location.replace("/api/recipes");
     } else {
       feedback.textContent = "Failed to login. Please try again!";
       //   then refresh page?

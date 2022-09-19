@@ -1,8 +1,10 @@
 const router = require("express").Router();
 const { response } = require("express");
 const User = require("../../Models/users");
+const chalk = require("chalk");
 
-//create a new user -> /api/users/create-user
+// create a new user
+// route --> POST --> /api/users/create-user
 router.post("/create-user", async (req, res) => {
   try {
     const newUser = req.body;
@@ -17,8 +19,9 @@ router.post("/create-user", async (req, res) => {
   // return newUser;
 });
 
-// Post route to validate login info
-router.post("/", async (req, res) => {
+// Login
+// route --> POST --> /api/users/login
+router.post("/login", async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
@@ -33,39 +36,37 @@ router.post("/", async (req, res) => {
     }
 
     const validPassword = await dbUserData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res
         .status(400)
         .json({ message: "Incorrect username or password. Please try again." });
+      return;
     }
 
+    console.log(req.session); // no loggedIn key
+    // .save() is used to save key:value pairs on the session object
     req.session.save(() => {
+      // create a key, loggedIn, on the session object & set its value = true
       req.session.loggedIn = true;
-      console.log("Logged in");
+      console.log(req.session); // loggedIn key = true
     });
 
-    res
-      .status(200)
-      .json({ user: dbUserData, message: "You are now logged in!" });
-    document.location.replace("/api/recipes");
-  } catch (err) {
-    res.status(500).json(err);
+    res.redirect("/api/recipes");
+  } catch {
+    console.log("darn!");
   }
 });
 
-// LOGOUT route
-router.post('/logout', (req, res) => {
-  console.log(req.session.loggedIn);
+// LOGOUT
+// route --> POST --> /api/users/logout
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).end();
+      res.redirect("/");
     });
   } else {
     res.status(404).end();
   }
 });
-
-
 
 module.exports = router;

@@ -12,3 +12,8 @@ button,
 .btn {
   font-family: "Jost", sans-serif;
 }
+
+.img-responsive {
+  max-width: 10%;
+  max-height: 10%;
+}
