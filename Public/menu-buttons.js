@@ -1,5 +1,7 @@
 // const { User } = require("../Models");
 
+// const { response } = require("express");
+
 const allRecipesBtn = async () => {
   console.log("button working");
   document.location.replace("/api/recipes");
@@ -7,8 +9,15 @@ const allRecipesBtn = async () => {
 
 const myRecipesBtn = async () => {
   // how to pull current user's id?
-  const thisUser = await User.findOne;
-  document.location.replace("/api/my/:user_id");
+  const thisUser = await fetch(`/api/users/id`);
+  console.log(thisUser);
+
+  document.location.replace(`/api/recipes/my/${thisUser}`);
+  if (response.ok) {
+    console.log("Pulling up your recipes");
+  } else {
+    console.log("Not working");
+  }
 };
 
 const addRecipeBtn = async () => {
@@ -16,7 +25,7 @@ const addRecipeBtn = async () => {
 };
 
 const logOutBtn = async () => {
-  const response = await fetch("api/users/logout", {
+  const response = await fetch("/api/users/logout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
   });
