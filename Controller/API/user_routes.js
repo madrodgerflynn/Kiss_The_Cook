@@ -43,10 +43,12 @@ router.post("/login", async (req, res) => {
       return;
     }
 
+    console.log(req.session); // no loggedIn key
     // .save() is used to save key:value pairs on the session object
     req.session.save(() => {
-      // create a key loggedIn on the session object & set its value = true
+      // create a key, loggedIn, on the session object & set its value = true
       req.session.loggedIn = true;
+      console.log(req.session); // loggedIn key = true
     });
 
     res.redirect("/api/recipes");

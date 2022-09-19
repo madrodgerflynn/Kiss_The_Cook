@@ -7,7 +7,8 @@ router.get("/", async (req, res) => {
   // --> for some reason this is redirecting to the home page even when req.session.loggedIn=true
   // if (!req.session.loggedIn) {
   //   res.redirect("/");
-  // } else {
+  // }
+  //  else {
   try {
     const dbRecipeData = await Recipe.findAll({
       include: [
