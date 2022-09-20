@@ -73,10 +73,19 @@ router.get("/:id", async (req, res) => {
     });
 
     const recipe = dbRecipeData.get({ plain: true });
-    console.log("========");
-    console.log(req.session);
-    console.log("========");
-    res.render("one-recipe", { recipe, loggedIn: req.session.loggedIn });
+    console.log(`line 78 --> ${recipe}`);
+    // console.log(recipe);
+    let ingredients = JSON.parse(recipe.ingredients);
+    let steps = JSON.parse(recipe.recipe_steps);
+    // console.log("========");
+    // console.log(req.session);
+    // console.log("========");
+    res.render("one-recipe", {
+      recipe,
+      ingredients,
+      steps,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
