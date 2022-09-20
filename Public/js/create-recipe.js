@@ -22,23 +22,29 @@ let stepArray = [];
 
 const createRecipeFormHandler = async (event) => {
   event.preventDefault();
-  if (recipeName && ingredientUl && stepOl) {
-    const response = await fetch("/api/recipes/add-recipe", {
+  if (nameInput && ingredientUl && stepOl) {
+    console.log(nameInput.value);
+    console.log(imageInput.value);
+    console.log(ingredientArray);
+    console.log(stepArray);
+
+    const response = await fetch("/api/add-recipe/", {
       method: "POST",
       body: JSON.stringify({
-        title: recipeName,
-        image: image,
+        title: nameInput.value,
+        image: imageInput.value,
         ingredients: ingredientArray,
         recipe_steps: stepArray,
       }),
       headers: { "Content-Type": "application/json" },
     });
+    console.log(response);
     if (response.ok) {
       document.location.replace("/");
     } else {
       alert("Failed to submit recipe");
     }
-  }
+  } 
 };
 
 function nameFormHandler(event) {
@@ -51,7 +57,7 @@ function nameFormHandler(event) {
     const newNameH2 = document.createElement("h2");
     newNameH2.textContent = recipeName;
     nameTextDiv.appendChild(newNameH2);
-    nameInput.value = "";
+    // nameInput.value = "";
     // console.log(name);
   }
 }
