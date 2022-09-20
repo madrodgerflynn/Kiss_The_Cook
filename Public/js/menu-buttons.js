@@ -1,4 +1,4 @@
-const { json } = require("sequelize");
+// const { json } = require("sequelize");
 
 const allRecipesBtn = async () => {
   console.log("button working");
