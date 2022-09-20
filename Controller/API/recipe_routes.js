@@ -92,19 +92,6 @@ router.get("/my/:user_id", async (req, res) => {
 // api/recipes/add-recipe
 //move this one too
 // post a new recipe to the database
-router.post("/add-recipe", async (req, res) => {
-  try {
-    const dbRecipeData = await Recipe.create({
-      title: req.body.title,
-      image: req.body.image,
-      ingredients: req.body.ingredients,
-      recipe_steps: req.body.recipe_steps,
-      user_id: req.body.user_id,
-    });
-    res.status(200).json(dbRecipeData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+
 
 module.exports = router;
