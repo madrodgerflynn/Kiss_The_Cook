@@ -14,6 +14,14 @@ button,
   font-family: "Jost", sans-serif;
 }
 
+.bg-custom {
+  background-color: #2d132c;
+}
+
+.bg-custom-2 {
+  background-color: #801336;
+}
+
 .img-responsive {
   max-width: 10%;
   max-height: 10%;
