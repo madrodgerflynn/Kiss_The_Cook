@@ -32,6 +32,7 @@ Recipe.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "users", //might need to be singular - double check
         key: "id",

@@ -89,4 +89,9 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// return the session object
+router.get("/", (req, res) => {
+  res.status(200).json(req.session);
+});
+
 module.exports = router;

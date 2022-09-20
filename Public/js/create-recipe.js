@@ -22,17 +22,39 @@ let stepArray = [];
 
 const createRecipeFormHandler = async (event) => {
   event.preventDefault();
-  if (recipeName && ingredientUl && stepOl) {
-    const response = await fetch("/api/recipes/add-recipe", {
-      method: "POST",
-      body: JSON.stringify({
-        title: recipeName,
-        image: image,
-        ingredients: ingredientArray,
-        recipe_steps: stepArray,
-      }),
+  if (nameInput && ingredientUl && stepOl) {
+    let imageValue = imageInput.value;
+    console.log(nameInput.value);
+    console.log(imageInput.value);
+    console.log(ingredientArray);
+    console.log(stepArray);
+
+    if (!imageValue) {
+      imageValue = null;
+    }
+    const responseA = await fetch("/api/users/", {
+      method: "GET",
       headers: { "Content-Type": "application/json" },
     });
+    const parsedSession = await responseA.json();
+
+    let ingredientString = JSON.stringify(ingredientArray);
+    let stepString = JSON.stringify(stepArray);
+
+    const reqBody = JSON.stringify({
+      title: nameInput.value,
+      image: imageValue,
+      ingredients: ingredientString,
+      recipe_steps: stepString,
+      user_id: parsedSession.user_id,
+    });
+
+    const response = await fetch("/api/add-recipe/", {
+      method: "POST",
+      body: reqBody,
+      headers: { "Content-Type": "application/json" },
+    });
+
     if (response.ok) {
       document.location.replace("/");
     } else {
@@ -51,7 +73,7 @@ function nameFormHandler(event) {
     const newNameH2 = document.createElement("h2");
     newNameH2.textContent = recipeName;
     nameTextDiv.appendChild(newNameH2);
-    nameInput.value = "";
+    // nameInput.value = "";
     // console.log(name);
   }
 }

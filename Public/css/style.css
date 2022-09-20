@@ -1,4 +1,5 @@
 h2,
+h3,
 h5,
 h6 {
   font-family: "Shadows Into Light", cursive;
@@ -13,7 +14,27 @@ button,
   font-family: "Jost", sans-serif;
 }
 
+.bg-custom {
+  background-color: #2d132c;
+}
+
+.bg-custom-2 {
+  background-color: #801336;
+}
+
 .img-responsive {
   max-width: 10%;
   max-height: 10%;
+}
+
+.custom-width {
+  width: fit-content;
+}
+
+.custom-margin {
+  margin-top: 1rem;
+}
+
+.custom-margin-bottom {
+  margin-bottom: 1rem;
 }
