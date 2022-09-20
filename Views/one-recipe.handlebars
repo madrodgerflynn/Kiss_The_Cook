@@ -5,18 +5,20 @@
   <h2 class="card-header">
     {{recipe.title}}
   </h2>
-  <h5 class="card-title">By: @{{recipe.user.username}}</h5>
+  <h5 class="mt-3 card-title">By: @{{recipe.user.username}}</h5>
   <div class="card-body d-flex flex-column align-items-start">
     <img src="{{recipe.image}}" alt="Picture of food" class="card-img-top" />
 
-    <ul class="card-text">Ingredients:
-      {{#each recipe.ingredients as |ingredient|}}
-        <li>{{ingredient}}</li>
+    <ul class="card-text">
+      <h3 class="text-left mt-4">Ingredients:</h3>
+      {{#each ingredients as |ingredient|}}
+       <li class="text-left">{{ingredient}}</li>
       {{/each}}<!-- dynamically create list items here from array -->
     </ul>
-    <ol class="card-text">Steps:
-      {{#each recipe.recipe_steps as |step|}}
-        <li>{{step}}</li>
+    <ol class="card-text">
+      <h3 class="text-left">Steps:</h3>
+      {{#each steps as |step|}}
+        <li class="text-left">{{step}}</li>
       {{/each}}<!-- dynamically create list items here from other array -->
     </ol>
     <img

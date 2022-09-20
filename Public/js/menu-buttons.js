@@ -1,4 +1,4 @@
-const { json } = require("sequelize");
+// const { json } = require("sequelize");
 
 const allRecipesBtn = async () => {
   console.log("button working");
@@ -16,14 +16,16 @@ const myRecipesBtn = (event) => {
 
 const surpriseMe = async () => {
   // fetch all recipes
-  const recipes = await fetch("/api/recipes/all", {
+  const response = await fetch("/api/recipes/all", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
-
-  console.log(recipes);
+  const recipes = await response.json();
   // random number generator to pick a random recipe & capture ID
+  let selectedRecipe = recipes[Math.floor(Math.random() * recipes.length)];
   // render one-recipe with id value found
+  let path = `/api/recipes/${selectedRecipe.id}`;
+  window.location.replace(path);
 };
 
 const addRecipeBtn = () => {
