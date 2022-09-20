@@ -38,3 +38,7 @@ button,
 .custom-margin-bottom {
   margin-bottom: 1rem;
 }
+
+button:hover {
+  color: black;
+}
