@@ -7,7 +7,7 @@
   </h2>
   <h5 class="mt-3 card-title">By: @{{recipe.user.username}}</h5>
   <div class="card-body d-flex flex-column align-items-start">
-    {{#if image}}
+    {{#if recipe.image}}
     <img src="{{recipe.image}}" alt="Picture of food" class="card-img-top" />
   {{else}}
     <img
