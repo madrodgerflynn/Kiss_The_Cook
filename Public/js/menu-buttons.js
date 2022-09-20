@@ -1,5 +1,3 @@
-// const { json } = require("sequelize");
-
 const allRecipesBtn = async () => {
   console.log("button working");
   document.location.replace("/api/recipes");
