@@ -1,4 +1,4 @@
-const allRecipesBtn = async () => {
+var allRecipesBtn = async () => {
   console.log("button working");
   document.location.replace("/api/recipes");
 };
