@@ -3,10 +3,16 @@ const allRecipesBtn = async () => {
   document.location.replace("/api/recipes");
 };
 
-const myRecipesBtn = (event) => {
+const myRecipesBtn = async (event) => {
+  const responseA = await fetch("/api/users/", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+  const parsedSession = await responseA.json();
+
   // how to pull current user's id?
   console.log(event.target);
-  const thisUser = event.target.getAttribute("data-type");
+  const thisUser = parsedSession.user_id;
   console.log(thisUser);
 
   document.location.replace(`/api/recipes/my/${thisUser}`);
