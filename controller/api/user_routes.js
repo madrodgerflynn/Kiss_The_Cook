@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { response } = require("express");
-const User = require("../../Models/users");
+const User = require("../../models/Users");
 const chalk = require("chalk");
 
 // create a new user
@@ -69,11 +69,11 @@ router.post("/login", async (req, res) => {
 });
 
 //Return the current user's id
-router.get("/id", async (req, res) => {
-  const userId = req.session.user_id;
-  console.log(userId);
-  res.status(200).json(userId);
-});
+// router.get("/:id", async (req, res) => {
+//   const userId = req.session.user_id;
+//   console.log(userId);
+//   res.status(200).json(userId);
+// });
 
 // LOGOUT
 // route --> POST --> /api/users/logout

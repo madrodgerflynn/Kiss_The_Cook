@@ -56,6 +56,8 @@ No Tests were used!
 
 ## Images
 
----
+![Screenshot](../Kiss_The_Chef/public/images/Screenshot.JPG)(screenshot)
 
 ## Link
+
+[Page Link](https://kiss-the-cook.herokuapp.com/api/recipes)(Heroku)
