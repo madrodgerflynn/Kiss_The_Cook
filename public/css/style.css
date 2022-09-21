@@ -40,5 +40,9 @@ button,
 }
 
 button:hover {
-  color: black;
+  color: #801336;
+}
+
+.hidden {
+  display: none;
 }
