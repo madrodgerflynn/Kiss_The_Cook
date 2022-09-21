@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const { Recipe } = require("../../Models/index");
+const { Recipe } = require("../../models/index");
 // const chalk = require("chalk");
-
 
 // end point of api/add-recipe
 

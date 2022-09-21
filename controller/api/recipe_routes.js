@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Recipe, User } = require("../../Models/index");
+const { Recipe, User } = require("../../models/index");
 const chalk = require("chalk");
 
 // route --> /api/recipes
@@ -125,6 +125,5 @@ router.get("/my/:user_id", async (req, res) => {
 // api/recipes/add-recipe
 //move this one too
 // post a new recipe to the database
-
 
 module.exports = router;
