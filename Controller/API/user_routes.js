@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { response } = require("express");
-const User = require("../../Models/users");
+const User = require("../../models/users");
 const chalk = require("chalk");
 
 // create a new user
