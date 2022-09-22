@@ -10,32 +10,33 @@ const deleteRecipe = async () => {
 
   const recipeRes = await fetch("/api/recipes/all", {
     method: "GET",
-    // headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json" },
   });
   const recipeData = await recipeRes.json();
-  console.log(recipeData); //returns array of all recipe objects
 
-  let recipeTitle = document.querySelector(".recipe-title");
+  const recipeTitle = document.querySelector(".recipe-title");
 
   let matchingRecipe = [];
   for (const recipe of recipeData) {
     if (recipe.user_id === userId && recipe.title == recipeTitle.textContent) {
-      console.log(recipe.id);
       matchingRecipe.push(recipe);
     }
   }
-  console.log(matchingRecipe);
-
   // capture recipe's id value
   let recipeId = matchingRecipe[0].id;
-  console.log(recipeId);
+
   // template string fetch path with captured id value: /api/delete-recipe/${recipeId}
   const path = `/api/delete-recipe/${recipeId}`;
+  console.log(path);
   // fetch request to path
-  const deleteRes = await fetch(path, () => {});
+  const deleteRes = await fetch(path, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
   const parse = await deleteRes.json();
   console.log(parse);
-  console.log("success!");
+  //   console.log("success!");
+  window.location.replace("/");
 };
 
 if (document.querySelector(".delete")) {
