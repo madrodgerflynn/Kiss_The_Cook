@@ -58,6 +58,7 @@ router.post("/login", async (req, res) => {
       // create a key, loggedIn, on the session object & set its value = true
       req.session.loggedIn = true;
       req.session.user_id = dbUserData.id;
+      req.session.username = dbUserData.username;
       console.log(req.session); // loggedIn key = true
       // res.status(200).json({ user: dbUserData });
       res.redirect("/api/recipes");
@@ -90,6 +91,7 @@ router.post("/logout", (req, res) => {
 });
 
 // return the session object
+// endpoint --> /api/users/
 router.get("/", (req, res) => {
   res.status(200).json(req.session);
 });
