@@ -28,14 +28,11 @@ const deleteRecipe = async () => {
   // template string fetch path with captured id value: /api/delete-recipe/${recipeId}
   const path = `/api/delete-recipe/${recipeId}`;
   console.log(path);
-  // fetch request to path
+  // fetch request to delete recipe by id
   const deleteRes = await fetch(path, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
-  const parse = await deleteRes.json();
-  console.log(parse);
-  //   console.log("success!");
   window.location.replace("/");
 };
 
