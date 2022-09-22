@@ -3,12 +3,8 @@ const { Recipe, User } = require("../../models/index");
 const chalk = require("chalk");
 
 // route --> /api/recipes
+// render all recipes page
 router.get("/", async (req, res) => {
-  // --> for some reason this is redirecting to the home page even when req.session.loggedIn=true
-  // if (!req.session.loggedIn) {
-  //   res.redirect("/");
-  // }
-  //  else {
   try {
     const dbRecipeData = await Recipe.findAll({
       include: [
@@ -32,10 +28,10 @@ router.get("/", async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-  // }
 });
 
 // route --> /api/recipes/all
+// respond with all recipe data
 router.get("/all", async (req, res) => {
   try {
     const dbRecipeData = await Recipe.findAll({
@@ -121,9 +117,5 @@ router.get("/my/:user_id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// api/recipes/add-recipe
-//move this one too
-// post a new recipe to the database
 
 module.exports = router;

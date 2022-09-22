@@ -7,8 +7,6 @@ const renderDeleteBtn = async () => {
   });
   // parse response
   const session = await sessionRes.json();
-  console.log(session.user_id);
-  console.log(session.username);
 
   // grab username from recipe
   const byAtUsername = document.querySelector(".username").textContent;
