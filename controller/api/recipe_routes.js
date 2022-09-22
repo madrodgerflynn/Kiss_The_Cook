@@ -73,7 +73,7 @@ router.get("/:id", async (req, res) => {
     });
 
     const recipe = dbRecipeData.get({ plain: true });
-    console.log(`line 78 --> ${recipe}`);
+    // console.log(`line 78 --> ${recipe}`);
     // console.log(recipe);
     let ingredients = JSON.parse(recipe.ingredients);
     let steps = JSON.parse(recipe.recipe_steps);

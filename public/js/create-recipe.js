@@ -24,10 +24,10 @@ const createRecipeFormHandler = async (event) => {
   event.preventDefault();
   if (nameInput && ingredientUl && stepOl) {
     let imageValue = imageInput.value;
-    console.log(nameInput.value);
-    console.log(imageInput.value);
-    console.log(ingredientArray);
-    console.log(stepArray);
+    // console.log(nameInput.value);
+    // console.log(imageInput.value);
+    // console.log(ingredientArray);
+    // console.log(stepArray);
 
     if (!imageValue) {
       imageValue = null;

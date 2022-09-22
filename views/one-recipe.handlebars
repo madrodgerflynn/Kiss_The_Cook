@@ -5,7 +5,7 @@
   <h2 class="card-header">
     {{recipe.title}}
   </h2>
-  <h5 class="mt-3 card-title">By: @{{recipe.user.username}}</h5>
+  <h5 class="username mt-3 card-title">By: @{{recipe.user.username}}</h5>
   <div class="card-body d-flex flex-column align-items-start">
     {{#if recipe.image}}
     <img src="{{recipe.image}}" alt="Picture of food" class="card-img-top" />
@@ -38,7 +38,8 @@
   <button class="delete btn text-light bg-custom-2 m-3 hidden">Delete my recipe</button>
 </div>
 
-{{!-- <script src="/menu-buttons.js"></script> --}}
+<script src="/js/render-delete-btn.js"></script>
+<script src="/js/delete-recipe.js"></script>
 {{else}}
 <a class="text-center m-4" href="/">You must login first to view this page.</a>
 {{/if}}
