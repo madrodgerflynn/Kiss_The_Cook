@@ -6,32 +6,24 @@
 
 ---
 
-The User as a home cook, can have a place to find, create, save, and share recipes so that they can easily keep track of the recipes that matter to them, and quickly find the recipe again when needed.
+This application gives the home cook a place to find, create, save, and share recipes so that they can easily keep track of the recipes that matter to them, and quickly find the recipe again when needed.
 
 ## Table of Contents
 
 ---
 
-- [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
-- [Tests](#tests)
-- [Link](#link)
-
-## Installation
-
----
-
-To install necessary dependencies, follow these steps:
-There are not any additional steps needed to install this application besides running it in a supported browser
+- [Deployed Application](#deployed-application)
 
 ## Usage
 
 ---
 
-1). Create User will ask for a username and password.
-2). Once you have created a new account you will be able to log-in and see the list of current recipes.
-3). You have options on the right hand side that allows you to view All Recipes, view My Recipes, Surprise Me, Add a Recipe and finally Log Out. (For an example, when the user selects "add new receipe", it will re-direct the user to a page that allows them to input a recipe step-by-step.)
+1. Create User will ask for a username and password.
+1. Once you have created a new account you will be able to log-in and see the recipe database.
+1. You have options on the left hand side to view All Recipes, view My Recipes, view a random recipe(Surprise Me), Add a Recipe, or Log Out.
+1. Click a recipe card to view its details.
 
 ## License
 
@@ -41,23 +33,17 @@ There are not any additional steps needed to install this application besides ru
 
 ---
 
-- Micha Bottoms @mbottoms3,
-- Becca Roberts @relero90,
-- Michaela Varberg @michaelavarberg,
-- Tyler Anderson @madrodgerflynn
-
-## Tests
-
----
-
-No Tests were used!
+- Micah Bottoms [@mbottoms3](https://github.com/mbottoms3),
+- Becca Roberts [@relero90](https://github.com/relero90),
+- Michaela Varberg [@michaelavarberg](https://github.com/michaelavarberg),
+- Tyler Anderson [@madrodgerflynn](https://github.com/madrodgerflynn)
 
 ---
 
 ## Images
 
-![Screenshot](../Kiss_The_Chef/public/images/Screenshot.JPG)(screenshot)
+![Screenshot](../Kiss_The_Chef/public/images/Screenshot.JPG)
 
-## Link
+## Deployed Application
 
-[Page Link](https://kiss-the-cook.herokuapp.com/api/recipes)(Heroku)
+[Kiss the Cook Live Link](https://kiss-the-cook.herokuapp.com/)
